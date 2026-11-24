@@ -5,7 +5,7 @@
 [![Engine](https://img.shields.io/badge/Engine-NeuroWeb--Boot%20v1.0.0-00e5ff?style=for-the-badge&logo=webassembly&logoColor=black)](https://github.com/cyberenigma-lgtm/neuroweb-boot)
 [![Architecture](https://img.shields.io/badge/Architecture-x86__64%20Long%20Mode-00ff88?style=for-the-badge&logo=cpu&logoColor=black)](https://github.com/cyberenigma-lgtm/neuroweb-boot)
 [![Authority Seal](https://img.shields.io/badge/AUTHORITY_SEAL-0x4A4D4D43_(*JMMC*)-8A6208?style=for-the-badge&logo=shield&logoColor=white)](https://github.com/cyberenigma-lgtm)
-[![Safe Creative](https://img.shields.io/badge/SAFE_CREATIVE-REGISTRATION_IN_PROGRESS-5A189A?style=for-the-badge&logo=vault&logoColor=white)](https://www.safecreative.org)
+[![Safe Creative](https://img.shields.io/badge/SAFE_CREATIVE-2611247743117-5A189A?style=for-the-badge&logo=vault&logoColor=white)](https://www.safecreative.org/work/2611247743117)
 [![Live Demo](https://img.shields.io/badge/Live_Demo-NEURO--OS%20Genesis-ffaa00?style=for-the-badge&logo=googlechrome&logoColor=black)](https://cyberenigma-lgtm.github.io/neuro-os-live-demo/)
 
 **High-Performance x86_64 WebAssembly Bare-Metal OS Bootloader & VBE Linear Framebuffer Compositor.**  
@@ -143,7 +143,7 @@ neuroweb-boot/
 - **Autor & Arquitecto // Author & Architect:** José Manuel Moreno Cano (*Noxferion*)
 - **Sello de Autoridad // Authority Seal:** `0x4A4D4D43` (*JMMC*)
 - **Firma de Kernel Ring-0 // Ring-0 Kernel Signature:** `0x4359454E`
-- **Registro Safe Creative:** *En proceso de expedición (ID pendiente de incorporación).*
+- **Registro Safe Creative:** *2611247743117.*
 - **Marca Registrada // Registered Trademark:** *"NeuroOs Genesis"*
 
 *Todos los derechos reservados. All rights reserved.*
