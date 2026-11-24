@@ -2,6 +2,9 @@
 
 <div align="center">
 
+  <img src="assets/neuroweb_boot_banner.png" alt="NeuroWeb-Boot Engine Banner" width="100%" style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 229, 255, 0.45); border: 2px solid #00e5ff;"/>
+  <br><br>
+
 [![Engine](https://img.shields.io/badge/Engine-NeuroWeb--Boot%20v1.0.0-00e5ff?style=for-the-badge&logo=webassembly&logoColor=black)](https://github.com/cyberenigma-lgtm/neuroweb-boot)
 [![Architecture](https://img.shields.io/badge/Architecture-x86__64%20Long%20Mode-00ff88?style=for-the-badge&logo=cpu&logoColor=black)](https://github.com/cyberenigma-lgtm/neuroweb-boot)
 [![Authority Seal](https://img.shields.io/badge/AUTHORITY_SEAL-0x4A4D4D43_(*JMMC*)-8A6208?style=for-the-badge&logo=shield&logoColor=white)](https://github.com/cyberenigma-lgtm)
