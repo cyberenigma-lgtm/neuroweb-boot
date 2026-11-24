@@ -179,3 +179,4 @@ export class NeuroWebBoot {
 if (typeof window !== "undefined") {
     window.NeuroWebBoot = NeuroWebBoot;
 }
+

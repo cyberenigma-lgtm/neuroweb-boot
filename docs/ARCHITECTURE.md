@@ -38,3 +38,4 @@ El motor intercepta las interrupciones del puerto serie estándar `COM1` (`0x3F8
 
 ## 4. Declaración de Propiedad Intelectual
 Todo el diseño arquitectónico, el código fuente del motor, los algoritmos de remapeo MMIO y las adaptaciones de flujo gráfico son autoría original y exclusiva de **José Manuel Moreno Cano (JMMC)** y forman parte integral del ecosistema registrado de **NEURO-OS**.
+
