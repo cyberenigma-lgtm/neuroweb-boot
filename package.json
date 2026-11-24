@@ -1,0 +1,36 @@
+{
+  "name": "neuroweb-boot",
+  "version": "1.0.0",
+  "description": "High-performance x86_64 WebAssembly bare-metal bootloader & VBE Linear Framebuffer engine. Stream and boot raw 64-bit OS kernels in web browsers.",
+  "main": "dist/neuroweb-boot.js",
+  "module": "src/NeuroWebBoot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "keywords": [
+    "x86_64",
+    "webassembly",
+    "wasm",
+    "osdev",
+    "bare-metal",
+    "bootloader",
+    "iso",
+    "multiboot",
+    "vbe",
+    "linear-framebuffer",
+    "operating-system",
+    "emulator",
+    "long-mode"
+  ],
+  "author": "José Manuel Moreno Cano (Noxferion)",
+  "authority_seal": "0x4A4D4D43",
+  "license": "SEE LICENSE IN README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyberenigma-lgtm/neuroweb-boot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cyberenigma-lgtm/neuroweb-boot/issues"
+  },
+  "homepage": "https://github.com/cyberenigma-lgtm/neuroweb-boot#readme"
+}

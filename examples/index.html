@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroWeb-Boot Engine — Minimal Example</title>
+    <style>
+        :root {
+            --bg: #070a13;
+            --card: #0d1526;
+            --accent: #00e5ff;
+            --border: rgba(0, 229, 255, 0.25);
+            --text: #e2e8f0;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace; }
+        body { background: var(--bg); color: var(--text); padding: 2rem; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        .header { text-align: center; margin-bottom: 1.5rem; }
+        .header h1 { font-size: 1.8rem; color: #fff; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .header p { color: #8892b0; font-size: 0.9rem; margin-top: 0.3rem; }
+        .vm-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; width: 100%; max-width: 960px; box-shadow: 0 10px 40px rgba(0,0,0,0.6); }
+        .controls { display: flex; gap: 0.75rem; margin-bottom: 1rem; align-items: center; }
+        button { background: rgba(0, 229, 255, 0.15); border: 1px solid var(--accent); color: var(--accent); padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: all 0.2s; }
+        button:hover { background: var(--accent); color: #000; }
+        #screen_container { width: 100%; height: 540px; background: #000; border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; position: relative; border: 1px solid #1a233a; }
+        #screen_container canvas { width: 100% !important; height: 100% !important; object-fit: contain; }
+        .console-card { margin-top: 1rem; background: #050811; border: 1px solid #1a233a; border-radius: 8px; padding: 0.75rem; font-family: monospace; font-size: 0.8rem; color: #38ef7d; max-height: 140px; overflow-y: auto; white-space: pre-wrap; width: 100%; max-width: 960px; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>🚀 NeuroWeb-Boot Engine</h1>
+        <p>High-Performance x86_64 WebAssembly Bare-Metal OS Bootloader & Compositor</p>
+    </div>
+
+    <div class="vm-card">
+        <div class="controls">
+            <button id="btn-boot">▶ Boot Bare-Metal ISO</button>
+            <button id="btn-reboot">🔄 Reboot VM</button>
+            <button id="btn-fullscreen">⛶ Fullscreen</button>
+            <span id="status-badge" style="margin-left: auto; color: #8892b0; font-size: 0.85rem;">Ready</span>
+        </div>
+
+        <div id="screen_container">
+            <div style="color: #4a5568; font-size: 0.9rem;">Screen inactive. Click "Boot Bare-Metal ISO" to start.</div>
+        </div>
+    </div>
+
+    <div class="console-card" id="serial-terminal">> COM1 Serial Telemetry Output ready...</div>
+
+    <script type="module">
+        import { NeuroWebBoot } from "../dist/neuroweb-boot.js";
+
+        const statusBadge = document.getElementById("status-badge");
+        const serialTerm = document.getElementById("serial-terminal");
+
+        const vm = new NeuroWebBoot({
+            isoUrl: "https://cyberenigma-lgtm.github.io/neuro-os-live-demo/Neuro-OS-Live-Demo.iso",
+            screenContainer: "#screen_container",
+            wasmPath: "../dist/v86.wasm",
+            biosPath: "../dist/seabios.bin",
+            vgaBiosPath: "../dist/vgabios.bin",
+            memorySize: 1024 * 1024 * 1024,
+            fpsLimit: 30,
+            onSerialData: (char) => {
+                serialTerm.textContent += char;
+                serialTerm.scrollTop = serialTerm.scrollHeight;
+            },
+            onScreenModeChange: (mode) => {
+                statusBadge.textContent = `Mode: ${mode.width}x${mode.height} @ ${mode.bpp}bpp (Active)`;
+                statusBadge.style.color = "#00e5ff";
+            },
+            onReady: () => {
+                statusBadge.textContent = "Kernel Running (x86_64 Long Mode)";
+                statusBadge.style.color = "#38ef7d";
+            }
+        });
+
+        document.getElementById("btn-boot").addEventListener("click", () => {
+            statusBadge.textContent = "Booting El Torito Multiboot ISO...";
+            document.getElementById("screen_container").innerHTML = "";
+            vm.boot();
+        });
+
+        document.getElementById("btn-reboot").addEventListener("click", () => vm.reboot());
+        document.getElementById("btn-fullscreen").addEventListener("click", () => vm.fullscreen());
+    </script>
+</body>
+</html>
