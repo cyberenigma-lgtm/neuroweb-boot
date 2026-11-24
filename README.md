@@ -9,12 +9,13 @@
 [![Architecture](https://img.shields.io/badge/Architecture-x86__64%20Long%20Mode-00ff88?style=for-the-badge&logo=cpu&logoColor=black)](https://github.com/cyberenigma-lgtm/neuroweb-boot)
 [![Authority Seal](https://img.shields.io/badge/AUTHORITY_SEAL-0x4A4D4D43_(*JMMC*)-8A6208?style=for-the-badge&logo=shield&logoColor=white)](https://github.com/cyberenigma-lgtm)
 [![Safe Creative](https://img.shields.io/badge/SAFE_CREATIVE-2611247743117-5A189A?style=for-the-badge&logo=vault&logoColor=white)](https://www.safecreative.org/work/2611247743117)
+[![Licenses](https://img.shields.io/badge/Licenses-Transparent%20Attribution-blue?style=for-the-badge&logo=gitbook&logoColor=white)](THIRD-PARTY-LICENSES.md)
 [![Live Demo](https://img.shields.io/badge/Live_Demo-NEURO--OS%20Genesis-ffaa00?style=for-the-badge&logo=googlechrome&logoColor=black)](https://cyberenigma-lgtm.github.io/neuro-os-live-demo/)
 
 **High-Performance x86_64 WebAssembly Bare-Metal OS Bootloader & VBE Linear Framebuffer Compositor.**  
 *Motor de alto rendimiento en WebAssembly para arranque de sistemas operativos bare-metal e imágenes ISO de 64 bits en navegadores web.*
 
-[🇪🇸 Español](#español) | [🇬🇧 English](#english)
+[🇪🇸 Español](#español) | [🇬🇧 English](#english) | [⚖️ Transparencia Legal](#legal-notices)
 
 </div>
 
@@ -59,25 +60,11 @@ await vm.boot();
 
 ---
 
-### 📂 Estructura del Repositorio
-```text
-neuroweb-boot/
-├── dist/
-│   ├── neuroweb-boot.js       # Punto de entrada de producción del SDK
-│   ├── v86-bochs-vga.js       # Controlador de remapeo MMIO LFB VBE
-│   ├── libv86.mjs             # Cargador del runtime WebAssembly
-│   ├── v86.wasm               # Núcleo de CPU x86_64 en WebAssembly
-│   ├── seabios.bin            # ROM SeaBIOS optimizada para arranque rápido
-│   └── vgabios.bin            # ROM Bochs VBE VGA BIOS
-├── src/
-│   └── NeuroWebBoot.js        # Módulo fuente ES6
-├── docs/
-│   └── ARCHITECTURE.md        # Memoria técnica de arquitectura y reivindicaciones
-├── examples/
-│   └── index.html             # Ejemplo funcional interactivo mínimo
-├── package.json
-└── README.md
-```
+### 🛣️ Hoja de Ruta de Soberanía Tecnológica (Modular Sovereignty Roadmap)
+NeuroWeb-Boot sigue una estrategia de reemplazo modular progresivo:
+1. **Fase 1 (Híbrida Actual):** Orquestación sobre el core de emulación v86 (BSD-2) con capas propias de remapeo MMIO LFB, telemetría COM1, temporizador de blit y SDK `NeuroWebBoot` (Registrado en Safe Creative #`2611247743117`).
+2. **Fase 2 (Soberanía de Firmware):** Sustitución de SeaBIOS por **NeuroBIOS**, una ROM mínima de inicialización directa en Long Mode escrita en ensamblador y compilada mediante UPL.
+3. **Fase 3 (Soberanía Gráfica Total):** Desacoplamiento de Bochs VBE mediante un driver de pantalla soberano WebAssembly que elimine toda dependencia externa.
 
 ---
 
@@ -120,33 +107,20 @@ await vm.boot();
 
 ---
 
-### 📂 Repository Layout
-```text
-neuroweb-boot/
-├── dist/
-│   ├── neuroweb-boot.js       # Production SDK entrypoint
-│   ├── v86-bochs-vga.js       # Custom MMIO LFB mapping controller
-│   ├── libv86.mjs             # Wasm runtime loader
-│   ├── v86.wasm               # x86_64 WebAssembly CPU core
-│   ├── seabios.bin            # Fastboot SeaBIOS ROM
-│   └── vgabios.bin            # Bochs VBE VGA BIOS ROM
-├── src/
-│   └── NeuroWebBoot.js        # ES6 Source Module
-├── docs/
-│   └── ARCHITECTURE.md        # Technical Whitepaper & Claims
-├── examples/
-│   └── index.html             # Minimal interactive demo
-├── package.json
-└── README.md
-```
+<a name="legal-notices"></a>
+## ⚖️ Transparencia Legal, Licencias y Atribución // Legal Notices
 
----
+Este proyecto opera bajo un modelo de **Obra Derivada e Innovación con Aportación Intelectual Original**, cumpliendo al 100% con la legalidad internacional y las licencias de código abierto:
 
-## 🏛️ Propiedad Intelectual & Registro // Intellectual Property
-- **Autor & Arquitecto // Author & Architect:** José Manuel Moreno Cano (*Noxferion*)
-- **Sello de Autoridad // Authority Seal:** `0x4A4D4D43` (*JMMC*)
-- **Firma de Kernel Ring-0 // Ring-0 Kernel Signature:** `0x4359454E`
-- **Registro Safe Creative:** *2611247743117.*
-- **Marca Registrada // Registered Trademark:** *"NeuroOs Genesis"*
+1. **Aportación Original y Autoría Propia (Safe Creative ID: `2611247743117`):**
+   - Arquitectura y SDK `NeuroWebBoot` (`NeuroWebBoot.js`).
+   - Algoritmo de remapeo MMIO de Linear Framebuffer en `v86-bochs-vga.js` a `0xFD000000`.
+   - Pipeline de throttling y blit no bloqueante a 30/60 FPS.
+   - Canal de telemetría serie COM1 para Ring-0.
+   - *Titular:* **José Manuel Moreno Cano (Noxferion)**. Sello de Autoridad: `0x4A4D4D43`.
 
-*Todos los derechos reservados. All rights reserved.*
+2. **Componentes Base de Terceros (Atribución y Cumplimiento):**
+   - **v86 Wasm CPU/MMU Core:** © Fabian Hemmer, distribuido bajo licencia permisiva **BSD 2-Clause**.
+   - **SeaBIOS & VGABIOS:** © Kevin O'Connor, Volker Ruppert & contributors, distribuidos bajo **GNU LGPLv3**.
+
+Consulta el desglose legal completo y textos íntegros en: 👉 **[`THIRD-PARTY-LICENSES.md`](THIRD-PARTY-LICENSES.md)**.
